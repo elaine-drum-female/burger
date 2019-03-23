@@ -4,6 +4,7 @@
 // ==============================================================================
 
 var express = require("express");
+var exphbs = require("express-handlebars");
 
 // ==============================================================================
 // EXPRESS CONFIGURATION
@@ -19,7 +20,14 @@ var PORT = process.env.PORT || 8080;
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
- 
+
+// Set Handlebars as the default templating engine.
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+
+
+
 
 
 
